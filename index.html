@@ -20,25 +20,6 @@
 
 </head>
 
-    <!-- SCRIPT AUTO TRANSLATE JAVASCRIPT -->
-    <script>
-        let currentLang = 'en';
-
-        function toggleLanguage() {
-            currentLang = (currentLang === 'en') ? 'id' : 'en';
-            document.getElementById('lang-label').innerText = (currentLang === 'en') ? 'ID' : 'EN';
-
-            const elements = document.querySelectorAll('[data-en][data-id]');
-            elements.forEach(el => {
-                if (currentLang === 'id') {
-                    el.innerHTML = el.getAttribute('data-id');
-                } else {
-                    el.innerHTML = el.getAttribute('data-en');
-                }
-            });
-        }
-    </script>
-    
 
 <body>
 
