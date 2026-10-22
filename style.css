@@ -768,6 +768,49 @@ footer {
 
     }
 
+    /* ==========================================
+   Google Translate Widget Styling
+   ========================================== */
+    #google_translate_element {
+        display: inline-block;
+    }
+
+    .goog-te-gadget-simple {
+        background-color: transparent !important;
+        border: 1px solid var(--border-color) !important;
+        padding: 6px 12px !important;
+        border-radius: 6px !important;
+        font-family: var(--font-body) !important;
+        font-size: 13px !important;
+        color: var(--text-secondary) !important;
+        cursor: pointer;
+        transition: border-color 0.2s ease;
+    }
+
+    .goog-te-gadget-simple:hover {
+        border-color: var(--accent-blue) !important;
+    }
+
+    .goog-te-gadget-simple .goog-te-menu-value span {
+        color: var(--text-secondary) !important;
+    }
+
+    .goog-te-gadget-icon {
+        display: none !important;
+    }
+
+    /* Sembunyikan topbar bawaan Google yang menutupi header */
+    .goog-te-banner-frame.skiptranslate, 
+    .goog-logo-link, 
+    .gnt-top-bar {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+
     .about-card {
 
         grid-template-columns: 1fr;
