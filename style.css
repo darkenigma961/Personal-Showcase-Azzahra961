@@ -857,15 +857,33 @@ footer {
     display: none !important;
 }
 
-/* Sembunyikan Logo & Banner Atas Google Translate */
-.goog-te-banner-frame.skiptranslate, 
-.goog-logo-link, 
-.gnt-top-bar,
-#goog-gt-tt {
+/* Sembunyikan banner topbar & elemen asli Google Translate */
+.goog-te-banner-frame,
+.skiptranslate,
+#google_translate_element {
     display: none !important;
 }
 
 body {
     top: 0px !important;
+}
+
+/* Style untuk Tombol Switcher Custom Kamu */
+.lang-switch-btn {
+    background-color: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.lang-switch-btn:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
 }
 
