@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deteksi Tumor Otak pada Citra Magnetic Resonance Imaging (MRI) Mengunakan You Only Look Once Versi 5 (YOLOv5) | Azzahra Raihani Putri</title>
+    <title>Brain Tumor Detection on Magnetic Resonance Imaging (MRI) using You Only Look Once Versi 5 (YOLOv5)</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,21 +11,30 @@
         <div class="nav-container">
             <a href="index.html" class="logo">&larr; Back to Portfolio</a>
         </div>
+		
+        <div class="nav-right">
+                <!-- Tombol Kustom pengganti widget Google -->
+                <button id="lang-toggle-btn" class="lang-switch-btn" onclick="toggleLanguage()">ID / EN</button>
+
+                <!-- Container tersembunyi untuk memuat script Google di latar belakang -->
+                <div id="google_translate_element"></div>
+        </div>
+
     </header>
 
     <section class="section">
         <div class="container" style="max-width: 800px;">
             <span class="badge">Undergraduate Thesis - Universitas Airlangga</span>
-            <h1 style="font-size: 32px; margin: 15px 0;">Deteksi Tumor Otak Pada Citra MRI Menggunakan YOLOv5</h1>
+            <h1 style="font-size: 32px; margin: 15px 0;">Brain Tumor Detection on Magnetic Resonance Imaging (MRI) using You Only Look Once Versi 5 (YOLOv5)</h1>
             
             <div style="margin: 30px 0;">
-                <h3>Ringkasan Penelitian</h3>
-                <p>Penelitian ini bertujuan untuk menerapkan algoritma Deep Learning YOLOv5 dalam mendeteksi dan mengklasifikasikan jenis tumor otak (Glioma, Meningioma, Pituitary) dari citra MRI secara otomatis dan real-time.</p>
+                <h3>Research Overview</h3>
+                <p>A brain tumor is a mass of abnormal tissue that develops and grows on brain cells. Brain tumor cases that often occur in Indonesia are glioma, meningioma, and pituitary tumor each of which has a different location and characteristics. In the process of radiological examination to detect brain tumors, it is carried out by manually observing the MRI images of the patient's brain which can take time and depend on the skills and experiences of the expert. Many studies on deep learning have shown high performance on models in classifying MRI images. However, there are some classification studies with noise on the image and class imbalance problems giving a poor performance to the model. This study aims to apply a deep learning model YOLOv5 to detect MRI images of glioma, meningioma, and pituitary tumors in imbalance classes. The detection process on an MRI image dataset that applies image enhancement variations, namely gaussian filters, median filters, CLAHE, CLAHE+gaussian filters, and CLAHE+median filters. Then apply the data balancing method, namely SMOTE on each dataset to overcome class imbalance problems. The result of this study shows that it can provide good performance and can increase the average accuracy value by 0.05 from the original dataset of 0,917 to 0,963 from the SMOTE dataset. The best YOLOv5 model design obtained is CLAHE 9x9+median filter radius 3 in the SMOTE dataset with an average F1-score of 0,935 with an accuracy of 0,964.</p>
             </div>
 
             <div style="text-align: center; margin: 20px 0;">
     				<img src="images/poster.png" alt="Poster Hasil Penelitian" style="width: 100%; max-width: 600px; border-radius: 10px; border: 1px solid #e2e8f0;">
-    				<p style="font-size: 13px; color: #64748b; margin-top: 8px;">Gambar: Poster penjelasan hasil penelitian</p>
+    				<p style="font-size: 13px; color: #64748b; margin-top: 8px;">Image : Research explanation poster</p>
 				</div>
 				
 				<!-- Tombol view paper -->
@@ -37,6 +46,48 @@
     <footer>
         <p>&copy; Azzahra Raihani Putri, S.T. All rights reserved.</p>
     </footer>
+
+<!-- Google Translate Engine (Instant 1-Click Toggle) -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,id',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    function toggleLanguage() {
+        var btn = document.getElementById("lang-toggle-btn");
+        
+        // Cek cookie terjemahan saat ini
+        var isIndonesian = document.cookie.indexOf("googtrans=/en/id") !== -1;
+
+        if (!isIndonesian) {
+            // Ubah ke Bahasa Indonesia via Cookie
+            document.cookie = "googtrans=/en/id; path=/;";
+            document.cookie = "googtrans=/en/id; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "🇮🇩 ID (Active)";
+        } else {
+            // Kembalikan ke Bahasa Inggris (Hapus Cookie)
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "ID / EN";
+        }
+
+        // Reload halaman secara halus agar terjemahan langsung aktif 100%
+        window.location.reload();
+    }
+
+    // Jalankan cek status label tombol saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById("lang-toggle-btn");
+        if (document.cookie.indexOf("googtrans=/en/id") !== -1 && btn) {
+            btn.innerText = "🇮🇩 ID (Active)";
+        }
+    });
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	
 </body>
 	
