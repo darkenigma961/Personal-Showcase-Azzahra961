@@ -1,41 +1,130 @@
-<div class="card">
-    <h3 data-en="Visual Arts & Pencil Sketches Gallery" data-id="Galeri Sketsa Pensil & Seni Visual">Sketch Gallery</h3>
-    <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;" 
-       data-en="A collection of traditional graphite sketches and digital illustrations, reflecting attention to visual detail and creative discipline." 
-       data-id="Kumpulan sketsa grafit tradisional dan ilustrasi digital, mencerminkan ketelitian pada detail visual dan kedisiplinan kreatif.">
-       Kumpulan sketsa grafit tradisional dan ilustrasi digital, mencerminkan ketelitian pada detail visual dan kedisiplinan kreatif.
-    </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">&larr; Back to Portfolio</a>
 
-    <div class="gallery-grid">
-        <!-- Gambar 1: Pelukan -->
-        <div class="gallery-item">
-            <img src="images/IMG_0315.jpeg" alt="Pencil Sketch - Warm Embrace" onclick="openModal(this)" style="cursor:pointer;">
-            <div class="gallery-caption">Reference from a Scene of "Anne with an E", Serial Netflix - Pencil Sketch</div>
-        </div>
+			<div class="nav-right">
+                <!-- Tombol Kustom pengganti widget Google -->
+                <button id="lang-toggle-btn" class="lang-switch-btn" onclick="toggleLanguage()">ID / EN</button>
 
-        <!-- Gambar 2: Sherlock -->
-        <div class="gallery-item">
-            <img src="images/IMG_0317.jpeg" alt="Pencil Sketch - Sherlock Portrait" onclick="openModal(this)" style="cursor:pointer;">
-            <div class="gallery-caption">Sherlock Holmes Series BBC played by Benedict Cumberbatch - Pencil Sketch</div>
-        </div>
+                <!-- Container tersembunyi untuk memuat script Google di latar belakang -->
+                <div id="google_translate_element"></div>
+            </div>
+			
+		</div>
 
-        <!-- Gambar 3: Husky -->
-        <div class="gallery-item">
-            <img src="images/IMG_0319.jpeg" alt="Pencil Sketch - Husky" onclick="openModal(this)" style="cursor:pointer;">
-            <div class="gallery-caption">Baby Husky Dog - Pencil Sketch</div>
-        </div>
+    </header>
 
-        <!-- Gambar 4: Mawar Digital -->
-        <div class="gallery-item">
-            <img src="images/IMG_0318.jpeg" alt="Digital Art - Pastel Rose" onclick="openModal(this)" style="cursor:pointer;">
-            <div class="gallery-caption">Pastel Rose - Digital Illustration</div>
-        </div>
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <h1 style="font-size: 32px; margin: 15px 0;">Hobbies</h1>
+            
+            <div style="margin: 30px 0;">
+                <h3>Sketching</h3>
+                <p>This project is the final assignment for the Computer Programming course. The final project involved creating an application using the Python programming language. The program was developed by a team of two members using Anaconda software.</p>
+					  
+					  <p>The MedReminder Application serves as a reminder for medication schedules and health check-ups.</p>
 
-        <!-- Gambar 5: Please Let Me Talk -->
-        <div class="gallery-item">
-            <img src="images/IMG_0316.jpeg" alt="Digital Art - Expressive Eyes" onclick="openModal(this)" style="cursor:pointer;">
-            <div class="gallery-caption">Where is the Freedom of Talk? - Digital Art</div>
+            </div>
+
+            <div class="card">
+                <h3 data-en="Visual Arts & Pencil Sketches Gallery" data-id="Galeri Sketsa Pensil & Seni Visual">Sketch Gallery</h3>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px;" data-en="A collection of traditional graphite sketches and digital illustrations, reflecting attention to visual detail and creative discipline." data-id="Kumpulan sketsa grafit tradisional dan ilustrasi digital, mencerminkan ketelitian pada detail visual dan kedisiplinan kreatif.">Kumpulan sketsa grafit tradisional dan ilustrasi digital, mencerminkan ketelitian pada detail visual dan kedisiplinan kreatif.</p>
+
+                <div class="gallery-grid">
+                <!-- Gambar 1: Pelukan -->
+                    <div class="gallery-item">
+                        <img src="images/IMG_0315.jpeg" alt="Pencil Sketch - Warm Embrace" onclick="openModal(this)" style="cursor:pointer;">
+                        <div class="gallery-caption">Reference from a Scene of "Anne with an E", Serial Netflix - Pencil Sketch</div>
+                    </div>
+
+                <!-- Gambar 2: Sherlock -->
+                <div class="gallery-item">
+                    <img src="images/IMG_0317.jpeg" alt="Pencil Sketch - Sherlock Portrait" onclick="openModal(this)" style="cursor:pointer;">
+                    <div class="gallery-caption">Sherlock Holmes Series BBC played by Benedict Cumberbatch - Pencil Sketch</div>
+                </div>
+
+                <!-- Gambar 3: Husky -->
+                <div class="gallery-item">
+                    <img src="images/IMG_0319.jpeg" alt="Pencil Sketch - Husky" onclick="openModal(this)" style="cursor:pointer;">
+                    <div class="gallery-caption">Baby Husky Dog - Pencil Sketch</div>
+                </div>
+
+                <!-- Gambar 4: Mawar Digital -->
+                <div class="gallery-item">
+                    <img src="images/IMG_0318.jpeg" alt="Digital Art - Pastel Rose" onclick="openModal(this)" style="cursor:pointer;">
+                    <div class="gallery-caption">Pastel Rose - Digital Illustration</div>
+                </div>
+
+                <!-- Gambar 5: Please Let Me Talk -->
+                <div class="gallery-item">
+                    <img src="images/IMG_0316.jpeg" alt="Digital Art - Expressive Eyes" onclick="openModal(this)" style="cursor:pointer;">
+                    <div class="gallery-caption">Where is the Freedom of Talk? - Digital Art</div>
+                </div>
+            </div>
+
         </div>
-    </div>
-</div>
+    </section>
+
+    <footer>
+        <p>&copy; Azzahra Raihani Putri, S.T. All rights reserved.</p>
+    </footer>
+
+	<!-- Google Translate Engine (Instant 1-Click Toggle) -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,id',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    function toggleLanguage() {
+        var btn = document.getElementById("lang-toggle-btn");
+        
+        // Cek cookie terjemahan saat ini
+        var isIndonesian = document.cookie.indexOf("googtrans=/en/id") !== -1;
+
+        if (!isIndonesian) {
+            // Ubah ke Bahasa Indonesia via Cookie
+            document.cookie = "googtrans=/en/id; path=/;";
+            document.cookie = "googtrans=/en/id; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "🇮🇩 ID (Active)";
+        } else {
+            // Kembalikan ke Bahasa Inggris (Hapus Cookie)
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "ID / EN";
+        }
+
+        // Reload halaman secara halus agar terjemahan langsung aktif 100%
+        window.location.reload();
+    }
+
+    // Jalankan cek status label tombol saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById("lang-toggle-btn");
+        if (document.cookie.indexOf("googtrans=/en/id") !== -1 && btn) {
+            btn.innerText = "🇮🇩 ID (Active)";
+        }
+    });
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+</body>
+	
+</html>
+
+
+
+
 
