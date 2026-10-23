@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,13 +12,12 @@
             <a href="index.html" class="logo">&larr; Back to Portfolio</a>
 
 			<div class="nav-right">
+                <!-- Tombol Kustom pengganti widget Google -->
+                <button id="lang-toggle-btn" class="lang-switch-btn" onclick="toggleLanguage()">ID / EN</button>
 
-				<!-- Wrapper khusus Translate -->
-            	<div class="translate-wrapper">
-                	<div id="google_translate_element"></div>
-            	</div>
-        
-			</div>
+                <!-- Container tersembunyi untuk memuat script Google di latar belakang -->
+                <div id="google_translate_element"></div>
+            </div>
 			
 		</div>
 
@@ -51,18 +50,47 @@
         <p>&copy; Azzahra Raihani Putri, S.T. All rights reserved.</p>
     </footer>
 
-	<!-- Script Google Translate -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                includedLanguages: 'en,id',
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
+	<!-- Google Translate Engine (Instant 1-Click Toggle) -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,id',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    function toggleLanguage() {
+        var btn = document.getElementById("lang-toggle-btn");
+        
+        // Cek cookie terjemahan saat ini
+        var isIndonesian = document.cookie.indexOf("googtrans=/en/id") !== -1;
+
+        if (!isIndonesian) {
+            // Ubah ke Bahasa Indonesia via Cookie
+            document.cookie = "googtrans=/en/id; path=/;";
+            document.cookie = "googtrans=/en/id; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "🇮🇩 ID (Active)";
+        } else {
+            // Kembalikan ke Bahasa Inggris (Hapus Cookie)
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "ID / EN";
         }
-    </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        // Reload halaman secara halus agar terjemahan langsung aktif 100%
+        window.location.reload();
+    }
+
+    // Jalankan cek status label tombol saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById("lang-toggle-btn");
+        if (document.cookie.indexOf("googtrans=/en/id") !== -1 && btn) {
+            btn.innerText = "🇮🇩 ID (Active)";
+        }
+    });
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 	
 </body>
 	
