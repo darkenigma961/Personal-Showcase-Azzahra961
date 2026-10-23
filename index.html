@@ -49,8 +49,13 @@
 
             </nav>
            
-            <!-- Widget ditaruh di luar nav-links agar selalu kelihatan -->
-            <div id="google_translate_element"></div>
+            <div class="nav-right">
+                <!-- Tombol Kustom pengganti widget Google -->
+                <button id="lang-toggle-btn" class="lang-switch-btn" onclick="toggleLanguage()">ID / EN</button>
+
+                <!-- Container tersembunyi untuk memuat script Google di latar belakang -->
+                <div id="google_translate_element"></div>
+            </div>
 
         </div>
 
@@ -402,7 +407,7 @@
 
     </footer>
 
-    <!-- Google Translate Script -->
+    <!-- Google Translate Engine (Hidden) -->
     <script type="text/javascript">
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
@@ -411,6 +416,25 @@
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
                 autoDisplay: false
             }, 'google_translate_element');
+        }
+
+        // Fungsi untuk memicu ganti bahasa secara manual
+        function toggleLanguage() {
+            var selectBox = document.querySelector(".goog-te-combo");
+            var btn = document.getElementById("lang-toggle-btn");
+
+            if (selectBox) {
+                // Jika sedang bahasa Indonesia, ganti ke Inggris, dan sebaliknya
+                if (selectBox.value === "id") {
+                    selectBox.value = "en";
+                    btn.innerText = "🇮🇩 ID";
+                } else {
+                    selectBox.value = "id";
+                    btn.innerText = "🇬🇧 EN";
+                }
+                // Trigger event change supaya Google Translate merespons
+                selectBox.dispatchEvent(new Event("change"));
+            }
         }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
