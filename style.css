@@ -799,23 +799,33 @@ footer {
 }
 
 
+/* Container untuk menu & widget translate */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 /* ==========================================
-Google Translate Widget Styling
-========================================== */
+   Google Translate Widget Styling (Selalu Kelihatan)
+   ========================================== */
 #google_translate_element {
     display: inline-block;
+    z-index: 1001;
 }
 
 .goog-te-gadget-simple {
-    background-color: transparent !important;
+    background-color: var(--bg-alt) !important;
     border: 1px solid var(--border-color) !important;
-    padding: 6px 12px !important;
+    padding: 6px 10px !important;
     border-radius: 6px !important;
     font-family: var(--font-body) !important;
-    font-size: 13px !important;
-    color: var(--text-secondary) !important;
+    font-size: 12px !important;
+    color: var(--text-primary) !important;
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
 }
 
 .goog-te-gadget-simple:hover {
@@ -823,14 +833,14 @@ Google Translate Widget Styling
 }
 
 .goog-te-gadget-simple .goog-te-menu-value span {
-    color: var(--text-secondary) !important;
+    color: var(--text-primary) !important;
 }
 
 .goog-te-gadget-icon {
     display: none !important;
 }
 
-/* Sembunyikan topbar bawaan Google yang menutupi header */
+/* Sembunyikan topbar bawaan Google */
 .goog-te-banner-frame.skiptranslate, 
 .goog-logo-link, 
 .gnt-top-bar {
@@ -840,5 +850,4 @@ Google Translate Widget Styling
 body {
     top: 0px !important;
 }
-
 
