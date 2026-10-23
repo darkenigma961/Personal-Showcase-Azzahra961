@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Azzahra Raihani Putri | Personal Showcase</title>
+    <title>Personal Showcase</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -29,7 +29,7 @@
 
         <div class="nav-container">
 
-            <a href="#" class="logo">Azzahra Raihani Putri<span>.</span></a>
+            <a href="#" class="logo">Azzahra Raihani Putri | Personal Showcase<span>.</span></a>
 
             <nav>
 
@@ -407,37 +407,43 @@
 
     </footer>
 
-    <!-- Google Translate Engine (Hidden) -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', // Bahasa asli web (Inggris)
-                includedLanguages: 'en,id', // Hanya tampilkan opsi Inggris & Indonesia
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: false
-            }, 'google_translate_element');
-        }
+    <!-- Google Translate Engine (Manual Mode) -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,id',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
 
-        // Fungsi untuk memicu ganti bahasa secara manual
-        function toggleLanguage() {
-            var selectBox = document.querySelector(".goog-te-combo");
-            var btn = document.getElementById("lang-toggle-btn");
+    // Fungsi untuk mengubah bahasa secara manual saat tombol diklik
+    function toggleLanguage() {
+        var selectBox = document.querySelector(".goog-te-combo");
+        var btn = document.getElementById("lang-toggle-btn");
 
-            if (selectBox) {
-                // Jika sedang bahasa Indonesia, ganti ke Inggris, dan sebaliknya
-                if (selectBox.value === "id") {
-                    selectBox.value = "en";
-                    btn.innerText = "🇮🇩 ID";
-                } else {
-                    selectBox.value = "id";
-                    btn.innerText = "🇬🇧 EN";
-                }
-                // Trigger event change supaya Google Translate merespons
-                selectBox.dispatchEvent(new Event("change"));
+        if (selectBox) {
+            // Cek apakah saat ini sedang dalam mode terjemahan (Bahasa Indonesia)
+            if (selectBox.value === "id") {
+                // Kembalikan ke Bahasa Inggris (Bahasa Asli)
+                selectBox.value = "en";
+                btn.innerText = "ID / EN";
+                
+                // Hapus cookie Google Translate agar tidak auto-translate saat direfresh/pindah halaman
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+            } else {
+                // Ubah ke Bahasa Indonesia
+                selectBox.value = "id";
+                btn.innerText = "🇮🇩 ID (Active)";
             }
+            
+            // Jalankan perubahan bahasa
+            selectBox.dispatchEvent(new Event("change"));
         }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    }
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 </body>
 </html>
