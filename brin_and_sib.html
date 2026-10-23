@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedReminder | Final Project of Computer Programming Subject</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">&larr; Back to Portfolio</a>
 
+			<div class="nav-right">
+                <!-- Tombol Kustom pengganti widget Google -->
+                <button id="lang-toggle-btn" class="lang-switch-btn" onclick="toggleLanguage()">ID / EN</button>
+
+                <!-- Container tersembunyi untuk memuat script Google di latar belakang -->
+                <div id="google_translate_element"></div>
+            </div>
+			
+		</div>
+
+    </header>
+
+    <section class="section">
+        <div class="container" style="max-width: 800px;">
+            <span class="badge">Undergraduate Project - Universitas Airlangga</span>
+            <h1 style="font-size: 32px; margin: 15px 0;">MedReminder</h1>
+            
+            <div style="margin: 30px 0;">
+                <h3>Project Overview</h3>
+                <p>This project is the final assignment for the Computer Programming course. The final project involved creating an application using the Python programming language. The program was developed by a team of two members using Anaconda software.</p>
+					  
+					  <p>The MedReminder Application serves as a reminder for medication schedules and health check-ups.</p>
+
+            </div>
+
+            <video controls width="100%">
+    					<source src="videos/tutorial aplikasi medreminder.mp4" type="video/mp4">Video Tutorial Aplikasi MedReminder.
+            </video>
+
+    				<p style="font-size: 13px; color: #64748b; margin-top: 8px;">MedReminder Application Video Tutorial</p>
+				</div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Azzahra Raihani Putri, S.T. All rights reserved.</p>
+    </footer>
+
+	<!-- Google Translate Engine (Instant 1-Click Toggle) -->
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,id',
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+    function toggleLanguage() {
+        var btn = document.getElementById("lang-toggle-btn");
+        
+        // Cek cookie terjemahan saat ini
+        var isIndonesian = document.cookie.indexOf("googtrans=/en/id") !== -1;
+
+        if (!isIndonesian) {
+            // Ubah ke Bahasa Indonesia via Cookie
+            document.cookie = "googtrans=/en/id; path=/;";
+            document.cookie = "googtrans=/en/id; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "🇮🇩 ID (Active)";
+        } else {
+            // Kembalikan ke Bahasa Inggris (Hapus Cookie)
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
+            if (btn) btn.innerText = "ID / EN";
+        }
+
+        // Reload halaman secara halus agar terjemahan langsung aktif 100%
+        window.location.reload();
+    }
+
+    // Jalankan cek status label tombol saat halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById("lang-toggle-btn");
+        if (document.cookie.indexOf("googtrans=/en/id") !== -1 && btn) {
+            btn.innerText = "🇮🇩 ID (Active)";
+        }
+    });
+</script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	
+</body>
+	
+</html>
