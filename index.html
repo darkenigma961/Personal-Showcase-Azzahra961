@@ -407,7 +407,7 @@
 
     </footer>
 
-    <!-- Google Translate Engine (Manual Mode) -->
+<!-- Google Translate Engine (Smooth Toggle) -->
 <script type="text/javascript">
     function googleTranslateElementInit() {
         new google.translate.TranslateElement({
@@ -417,29 +417,35 @@
         }, 'google_translate_element');
     }
 
-    // Fungsi untuk mengubah bahasa secara manual saat tombol diklik
+    // Variabel untuk menyimpan status bahasa saat ini
+    var currentLang = 'en';
+
     function toggleLanguage() {
         var selectBox = document.querySelector(".goog-te-combo");
         var btn = document.getElementById("lang-toggle-btn");
 
-        if (selectBox) {
-            // Cek apakah saat ini sedang dalam mode terjemahan (Bahasa Indonesia)
-            if (selectBox.value === "id") {
-                // Kembalikan ke Bahasa Inggris (Bahasa Asli)
-                selectBox.value = "en";
-                btn.innerText = "ID / EN";
-                
-                // Hapus cookie Google Translate agar tidak auto-translate saat direfresh/pindah halaman
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
-            } else {
-                // Ubah ke Bahasa Indonesia
-                selectBox.value = "id";
-                btn.innerText = "🇮🇩 ID (Active)";
-            }
-            
-            // Jalankan perubahan bahasa
-            selectBox.dispatchEvent(new Event("change"));
+        // Jika elemen Google Translate belum siap, tunggu sebentar lalu coba lagi otomatis
+        if (!selectBox) {
+            setTimeout(toggleLanguage, 100);
+            return;
+        }
+
+        if (currentLang === 'en') {
+            // Ubah ke Bahasa Indonesia
+            selectBox.value = 'id';
+            selectBox.dispatchEvent(new Event('change'));
+            currentLang = 'id';
+            if (btn) btn.innerText = "🇮🇩 ID (Active)";
+        } else {
+            // Kembalikan ke Bahasa Inggris
+            selectBox.value = 'en';
+            selectBox.dispatchEvent(new Event('change'));
+            currentLang = 'en';
+            if (btn) btn.innerText = "ID / EN";
+
+            // Hapus cookie agar tidak auto-translate saat halaman direfresh
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=." + document.domain + "; path=/;";
         }
     }
 </script>
